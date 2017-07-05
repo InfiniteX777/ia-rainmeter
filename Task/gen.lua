@@ -35,33 +35,31 @@ local list = {
 		"C:\\Users\\Infin\\AppData\\Local\\atom\\atom.exe",
 		"atom.exe"
 	},
-	--[[{
+	{
 		"github",
-		'"C:\\Users\\Michael\\AppData\\Local\\GitHub\\GitHub.appref-ms"',
-		"GitHub.exe"
-	}]]
+		'"C:\\Users\\Infin\\AppData\\Local\\GitHubDesktop\\GitHub Desktop.exe"',
+		'"GitHub Desktop.exe"'
+	}
 }
-local y = 1080
 
 function Initialize()
 	local file = io.open(SKIN:MakePathAbsolute(SELF:GetOption("IncFile")), "w")
 
-	file:write(
-		"[Rainmeter]"..
-		"\nUpdate=1000"..
-		"\nDynamicWindowSize=1\n\n"
-	)
+	file:write([[
+[Rainmeter]
+Update=1000
 
-	local dis = (#list*90-20+90)/2
+]])
+
 	for i,v in pairs(list) do
-		local x = (#list-i)*90+dis
+		local x = (#list-i)*90+20
 
 		file:write(
 			"["..v[1].."]"..
 			"\nMeter=Button"..
 			"\nButtonImage="..v[1]..
-			"\nX="..x..
-			"\nY="..y..
+			"\nX=20"..
+			"\nY="..x..
 			"\nLeftMouseUpAction=["..v[2].."]"
 		)
 
@@ -84,8 +82,8 @@ function Initialize()
 				"\n["..open.."]"..
 				"\nMeter=Image"..
 				"\nImageName="..open..
-				"\nX="..x..
-				"\nY="..y..
+				"\nX=20"..
+				"\nY="..x..
 				"\nImageAlpha=0"
 			)
 		end
@@ -93,7 +91,7 @@ function Initialize()
 		file:write("\n\n")
 	end
 
-		local x = #list*90+dis
+		local x = #list*90+20
 		file:write([[
 [recyclebin_process]
 Measure=Plugin
@@ -103,14 +101,17 @@ UpdateDivider=3
 
 [recyclebin_calc]
 Measure=Calc
-Formula=(recyclebin_process > 0 ? Clamp((1-recyclebin_process/10)*70,0,60) : 70)+]]..y..[[
+Formula=recyclebin_process > 0 ? Clamp((1-recyclebin_process/10)*70,0,60) : 70
+
+[recyclebin_y]
+Measure=Calc
+Formula=recyclebin_calc+]]..x..[[
 
 [recyclebin]
 Meter=Button
 ButtonImage=recyclebin
-X=]]..x..[[
-
-Y=]]..y..[[
+X=20
+Y=]]..x..[[
 
 MouseOverAction=[!HideMeter recyclebin_full]
 MouseLeaveAction=[!ShowMeter recyclebin_full]
@@ -122,10 +123,11 @@ DynamicVariables=1
 Meter=Image
 ImageName=full
 ImageCrop=0,[recyclebin_calc],70,70,0
-X=]]..x..[[
-
-Y=[recyclebin_calc]
+X=20
+Y=[recyclebin_y]
 DynamicVariables=1
 ]])
 	file:close()
+
+	SKIN:Bang("!HideFade","ia-rainmeter\\Task")
 end
