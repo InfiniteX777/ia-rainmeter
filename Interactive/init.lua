@@ -1,14 +1,17 @@
 local char
 local accel = 1
-local maxSpeed = 10
+local maxSpeed = 20
 local distance = 300
 local proximity = 250
+local angle = 0
 local mouseX, mouseY
 local pX, pY, speed = 0, 0, 0, 0, 0
 
 function render()
 	char:SetX(pX)
 	char:SetY(pY)
+	SKIN:Bang("!SetOption","Character","RotationAngle",angle)
+	SKIN:Bang("!UpdateMeter","Character")
 end
 
 function magnitude(x,y)
@@ -25,6 +28,7 @@ function Initialize()
 end
 
 function Update()
+	angle = (angle+math.pi/64)%(math.pi*2)
 	local dis = magnitude(pX+100-mouseX:GetValue(),pY+100-mouseY:GetValue())
 	local dX, dY = 0, 0
 	if dis > 0 then
@@ -46,5 +50,7 @@ function Update()
 	end
 	pX = pX-dX*speed
 	pY = pY-dY*speed
+	pX = 135
+	pY = 135
 	render()
 end
