@@ -1,1 +1,0 @@
-Anti-Alias = 111/255 Transparency
