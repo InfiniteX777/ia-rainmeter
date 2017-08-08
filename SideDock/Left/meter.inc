@@ -1,13 +1,13 @@
 [Variables]
-meterID=8/20
-Game0Banner=388080
-Game1Banner=368340
-Game2Banner=570
-Game3Banner=322750
-Game4Banner=70400
-Game5Banner=211820
-Game6Banner=413150
-Game7Banner=253250
+meterID=8/20/Blender 2.78/Borderless Gaming/CrossCode/Dota 2/Drifting Lands/Recettear: An Item Shop's Tale/Starbound/Stardew Valley/Stonehearth/Subnautica/Wallpaper Engine
+Game0Banner=365670
+Game1Banner=388080
+Game2Banner=368340
+Game3Banner=570
+Game4Banner=322750
+Game5Banner=70400
+Game6Banner=211820
+Game7Banner=413150
 
 [Game0]
 Meter=Image
@@ -112,4 +112,3 @@ MouseOverAction=[!SetOption Game7 Greyscale 0][!UpdateMeter Game7][!Redraw]
 MouseLeaveAction=[!SetOption Game7 Greyscale 1][!UpdateMeter Game7][!Redraw]
 DynamicVariables=1
 Group=SteamGames
-

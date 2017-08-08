@@ -1,10 +1,13 @@
-local insert,sort = table.insert,table.sort
+local insert,sort,concat = table.insert,table.sort,table.concat
 local floor,min,max = math.floor,math.min,math.max
 
 local games = {}
 local games_installed = {}
 local games_index = {}
 local bannerIndex = 1
+local shouldRefresh = false
+local bannerDone = false
+local meterDone = false
 local rows
 local steam
 local id
@@ -22,8 +25,12 @@ function queueBanner()
 			SKIN:Bang("!CommandMeasure","BannerParser","Update")
 			SKIN:Bang("!UpdateMeasure","BannerParser")
 		end
-	else SKIN:Bang("!Update")
+	else bannerDone = true
+		SKIN:Bang("!UpdateMeterGroup","SteamGames")
 		SKIN:Bang("!Redraw")
+		if meterDone and shouldRefresh then
+			SKIN:Bang("!Refresh")
+		end
 	end
 end
 
@@ -60,10 +67,11 @@ function Initialize()
 	rows = SKIN:GetVariable("rows")
 	steam = SKIN:GetVariable("steam")
 	id = SKIN:GetVariable("id")
-
-	local spacing = SKIN:GetVariable("spacing")
-	local ratio = SKIN:GetVariable("width")/SKIN:GetVariable("height")
-	local h = floor((1200-40)/rows)-spacing-spacing/rows
+	spacing = SKIN:GetVariable("spacing")
+	width = SKIN:GetVariable("width")
+	height = SKIN:GetVariable("height")
+	ratio = width/height
+	h = floor((SELF:GetOption("WinY")-40)/rows)-spacing-spacing/rows
 
 	-- Collect all games played by this user.
 	local file = io.open(steam.."\\userdata\\"..id.."\\config\\localconfig.vdf", "r")
@@ -89,19 +97,24 @@ function Initialize()
 	end
 	sort(games_installed)
 
+	queueBanner()
+
 	-- Check if the same.
+	local meterID = tostring(rows).."/"..tostring(spacing).."/"..concat(games_installed,"/")
+
 	file = io.open(SKIN:MakePathAbsolute(SELF:GetOption("IncFile")), "r")
 	if file then
 		local v = file:read("*all"):match("meterID=(.-)\n")
 		file:close()
 
-		if v and v == tostring(rows).."/"..tostring(spacing) then
+		if v and v == meterID then
 			return
+		else shouldRefresh = true
 		end
 	end
 
 	-- Setup
-	local variables = "[Variables]\nmeterID="..tostring(rows).."/"..tostring(spacing).."\n"
+	local variables = "[Variables]\nmeterID="..meterID.."\n"
 	local meters = ""
 	rows = min(#games_installed,rows)
 
@@ -133,7 +146,8 @@ Group=SteamGames
 	file:write(variables.."\n"..meters)
 	file:close()
 
-	queueBanner()
-
-	SKIN:Bang("!Refresh")
+	meterDone = true
+	if bannerDone then
+		SKIN:Bang("!Refresh")
+	end
 end
