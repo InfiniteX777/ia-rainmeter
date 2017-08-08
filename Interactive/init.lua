@@ -28,12 +28,12 @@ function Initialize()
 end
 
 function Update()
-	angle = (angle+math.pi/64)%(math.pi*2)
-	local dis = magnitude(pX+100-mouseX:GetValue(),pY+100-mouseY:GetValue())
+	--angle = (angle+math.pi/64)%(math.pi*2)
+	local dis = magnitude(pX-mouseX:GetValue(),pY-mouseY:GetValue())
 	local dX, dY = 0, 0
 	if dis > 0 then
-		dX = (pX+100-mouseX:GetValue())/dis
-		dY = (pY+100-mouseY:GetValue())/dis
+		dX = (pX-mouseX:GetValue())/dis
+		dY = (pY-mouseY:GetValue())/dis
 	end
 	if dis > distance then
 		speed = math.min(maxSpeed,speed+accel)
@@ -50,7 +50,5 @@ function Update()
 	end
 	pX = pX-dX*speed
 	pY = pY-dY*speed
-	pX = 135
-	pY = 135
 	render()
 end
