@@ -26,9 +26,9 @@ local list = {
 	--[[{
 		"github",
 		"GitHub",
-		'["C:\\Users\\Infin\\AppData\\Local\\GitHubDesktop\\GitHub Desktop.exe"]',
+		'["C:\\Users\\Infin\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe"]',
 		"",
-		'"GitHub Desktop.exe"',
+		'"GitHubDesktop.exe"',
 		"255,255,255"
 	},
 	{
@@ -178,7 +178,7 @@ local spacing = 20
 local search_tag = "firefox/github/atom/notepad++/microsoft edge/offline games/online games/social/technical/recycle bin/paint.net/gimp 2/rainmeter/refresh/steam/"
 local search_index = {
 	firefox = '"C:\\Program Files\\Nightly\\firefox.exe"',
-	github = '"C:\\Users\\Infin\\AppData\\Local\\GitHubDesktop\\GitHub Desktop.exe"',
+	github = '"C:\\Users\\Infin\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe"',
 	atom = '"C:\\ProgramData\\Infin\\atom\\atom.exe"',
 	["notepad++"] = '"F:\\Program Files\\Notepad++\\notepad++.exe"',
 	edge = "shell:Appsfolder\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge",
