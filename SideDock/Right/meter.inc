@@ -1,186 +1,152 @@
 [Variables]
-meterID=github/atom/notepadplusplus/firefox/edge/offline/online/social/technical/recyclebin/power/search/
-github_color=54,49,56
-atom_color=54,49,56
-notepadplusplus_color=54,49,56
-firefox_color=54,49,56
-edge_color=54,49,56
-offline_color=54,49,56
-online_color=54,49,56
-social_color=54,49,56
-technical_color=54,49,56
+meterID=offline/online/social/audio/media/workspace/downloads/technical/recyclebin/search/note/
+X=(#SCREENAREAWIDTH# - 70 - 20)
+hover1=0
+hover2=0
+hover3=0
+hover4=0
+hover5=0
+hover6=0
+hover7=0
+hover8=0
+hover9=0
 recyclebin_color=54,49,56
-power_color=54,49,56
 search_color=54,49,56
+note_color=54,49,56
 
-[github]
-Meter=Image
-ImageName=github
-X=1510
-Y=24.615384615385
-ImageTint=#github_color#
-DynamicVariables=1
-UpdateDivider=-1
-MouseOverAction=[!SetOption github ImageTint #HoverColor#][!UpdateMeter github][!Redraw]
-MouseLeaveAction=[!SetOption github ImageTint #github_color#][!UpdateMeter github][!Redraw]
-LeftMouseUpAction=["C:\Users\Infin\AppData\Local\GitHubDesktop\GitHub Desktop.exe"][!SetVariable github_color 255,255,255][!UpdateMeter github][!Redraw]
-
-[github_process]
-Measure=Plugin
-Plugin=Process
-ProcessName="GitHub Desktop.exe"
-IfCondition=github_process = 1
-IfTrueAction=[!SetVariable github_color 255,255,255][!SetOption github ImageTint 255,255,255][!UpdateMeter github][!Redraw]
-IfFalseAction=[!SetVariable github_color #IdleColor#][!SetOption github ImageTint #IdleColor#][!UpdateMeter github][!Redraw]
-DynamicVariables=1
-
-[atom]
-Meter=Image
-ImageName=atom
-X=1510
-Y=119.23076923077
-ImageTint=#atom_color#
-DynamicVariables=1
-UpdateDivider=-1
-MouseOverAction=[!SetOption atom ImageTint #HoverColor#][!UpdateMeter atom][!Redraw]
-MouseLeaveAction=[!SetOption atom ImageTint #atom_color#][!UpdateMeter atom][!Redraw]
-LeftMouseUpAction=[C:\Users\Infin\AppData\Local\atom\atom.exe][!SetVariable atom_color 255,255,255][!UpdateMeter atom][!Redraw]
-
-[atom_process]
-Measure=Plugin
-Plugin=Process
-ProcessName=atom.exe
-IfCondition=atom_process = 1
-IfTrueAction=[!SetVariable atom_color 255,255,255][!SetOption atom ImageTint 255,255,255][!UpdateMeter atom][!Redraw]
-IfFalseAction=[!SetVariable atom_color #IdleColor#][!SetOption atom ImageTint #IdleColor#][!UpdateMeter atom][!Redraw]
-DynamicVariables=1
-
-[notepadplusplus]
-Meter=Image
-ImageName=notepadplusplus
-X=1510
-Y=213.84615384615
-ImageTint=#notepadplusplus_color#
-DynamicVariables=1
-UpdateDivider=-1
-MouseOverAction=[!SetOption notepadplusplus ImageTint #HoverColor#][!UpdateMeter notepadplusplus][!Redraw]
-MouseLeaveAction=[!SetOption notepadplusplus ImageTint #notepadplusplus_color#][!UpdateMeter notepadplusplus][!Redraw]
-LeftMouseUpAction=["F:\Program Files\Notepad++\notepad++.exe"][!SetVariable notepadplusplus_color 94,182,84][!UpdateMeter notepadplusplus][!Redraw]
-
-[notepadplusplus_process]
-Measure=Plugin
-Plugin=Process
-ProcessName=notepad++.exe
-IfCondition=notepadplusplus_process = 1
-IfTrueAction=[!SetVariable notepadplusplus_color 94,182,84][!SetOption notepadplusplus ImageTint 94,182,84][!UpdateMeter notepadplusplus][!Redraw]
-IfFalseAction=[!SetVariable notepadplusplus_color #IdleColor#][!SetOption notepadplusplus ImageTint #IdleColor#][!UpdateMeter notepadplusplus][!Redraw]
-DynamicVariables=1
-
-[firefox]
-Meter=Image
-ImageName=firefox
-X=1510
-Y=308.46153846154
-ImageTint=#firefox_color#
-DynamicVariables=1
-UpdateDivider=-1
-MouseOverAction=[!SetOption firefox ImageTint #HoverColor#][!UpdateMeter firefox][!Redraw]
-MouseLeaveAction=[!SetOption firefox ImageTint #firefox_color#][!UpdateMeter firefox][!Redraw]
-LeftMouseUpAction=["C:\Program Files\Nightly\firefox.exe"][!SetVariable firefox_color 255,106,0][!UpdateMeter firefox][!Redraw]
-
-[firefox_process]
-Measure=Plugin
-Plugin=Process
-ProcessName=firefox.exe
-IfCondition=firefox_process = 1
-IfTrueAction=[!SetVariable firefox_color 255,106,0][!SetOption firefox ImageTint 255,106,0][!UpdateMeter firefox][!Redraw]
-IfFalseAction=[!SetVariable firefox_color #IdleColor#][!SetOption firefox ImageTint #IdleColor#][!UpdateMeter firefox][!Redraw]
-DynamicVariables=1
-
-[edge]
-Meter=Image
-ImageName=edge
-X=1510
-Y=403.07692307692
-ImageTint=#edge_color#
-DynamicVariables=1
-UpdateDivider=-1
-MouseOverAction=[!SetOption edge ImageTint #HoverColor#][!UpdateMeter edge][!Redraw]
-MouseLeaveAction=[!SetOption edge ImageTint #edge_color#][!UpdateMeter edge][!Redraw]
-LeftMouseUpAction=[shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge][!SetVariable edge_color 25,118,210][!UpdateMeter edge][!Redraw]
-
-[edge_process]
-Measure=Plugin
-Plugin=Process
-ProcessName=MicrosoftEdge.exe
-IfCondition=edge_process = 1
-IfTrueAction=[!SetVariable edge_color 25,118,210][!SetOption edge ImageTint 25,118,210][!UpdateMeter edge][!Redraw]
-IfFalseAction=[!SetVariable edge_color #IdleColor#][!SetOption edge ImageTint #IdleColor#][!UpdateMeter edge][!Redraw]
-DynamicVariables=1
-
-[offline]
+[meter1]
 Meter=Image
 ImageName=offline
-X=1510
-Y=497.69230769231
-ImageTint=#offline_color#
+X=#X#
+Y=24.615384615385
+ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
-MouseOverAction=[!SetOption offline ImageTint #HoverColor#][!UpdateMeter offline][!Redraw]
-MouseLeaveAction=[!SetOption offline ImageTint #offline_color#][!UpdateMeter offline][!Redraw]
-LeftMouseUpAction=["I:\Shortcuts\Offline Game"]
+MouseOverAction=[!SetVariable hover1 1][!CommandMeasure Script reload(1)][!UpdateMeter meter1][!Redraw]
+MouseLeaveAction=[!SetVariable hover1 0][!CommandMeasure Script reload(1)][!UpdateMeter meter1][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,1)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,1)]
 
-[online]
+[meter2]
 Meter=Image
 ImageName=online
-X=1510
-Y=592.30769230769
-ImageTint=#online_color#
+X=#X#
+Y=119.23076923077
+ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
-MouseOverAction=[!SetOption online ImageTint #HoverColor#][!UpdateMeter online][!Redraw]
-MouseLeaveAction=[!SetOption online ImageTint #online_color#][!UpdateMeter online][!Redraw]
-LeftMouseUpAction=["I:\Shortcuts\Online Game"]
+MouseOverAction=[!SetVariable hover2 1][!CommandMeasure Script reload(2)][!UpdateMeter meter2][!Redraw]
+MouseLeaveAction=[!SetVariable hover2 0][!CommandMeasure Script reload(2)][!UpdateMeter meter2][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,2)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,2)]
 
-[social]
+[meter3]
 Meter=Image
 ImageName=social
-X=1510
-Y=686.92307692308
-ImageTint=#social_color#
+X=#X#
+Y=213.84615384615
+ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
-MouseOverAction=[!SetOption social ImageTint #HoverColor#][!UpdateMeter social][!Redraw]
-MouseLeaveAction=[!SetOption social ImageTint #social_color#][!UpdateMeter social][!Redraw]
-LeftMouseUpAction=["I:\Shortcuts\Social"]
+MouseOverAction=[!SetVariable hover3 1][!CommandMeasure Script reload(3)][!UpdateMeter meter3][!Redraw]
+MouseLeaveAction=[!SetVariable hover3 0][!CommandMeasure Script reload(3)][!UpdateMeter meter3][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,3)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,3)]
 
-[technical]
+[meter4]
+Meter=Image
+ImageName=audio
+X=#X#
+Y=308.46153846154
+ImageTint=#IdleColor#
+DynamicVariables=1
+UpdateDivider=-1
+MouseOverAction=[!SetVariable hover4 1][!CommandMeasure Script reload(4)][!UpdateMeter meter4][!Redraw]
+MouseLeaveAction=[!SetVariable hover4 0][!CommandMeasure Script reload(4)][!UpdateMeter meter4][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,4)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,4)]
+
+[meter5]
+Meter=Image
+ImageName=media
+X=#X#
+Y=403.07692307692
+ImageTint=#IdleColor#
+DynamicVariables=1
+UpdateDivider=-1
+MouseOverAction=[!SetVariable hover5 1][!CommandMeasure Script reload(5)][!UpdateMeter meter5][!Redraw]
+MouseLeaveAction=[!SetVariable hover5 0][!CommandMeasure Script reload(5)][!UpdateMeter meter5][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,5)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,5)]
+
+[meter6]
+Meter=Image
+ImageName=workspace
+X=#X#
+Y=497.69230769231
+ImageTint=#IdleColor#
+DynamicVariables=1
+UpdateDivider=-1
+MouseOverAction=[!SetVariable hover6 1][!CommandMeasure Script reload(6)][!UpdateMeter meter6][!Redraw]
+MouseLeaveAction=[!SetVariable hover6 0][!CommandMeasure Script reload(6)][!UpdateMeter meter6][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,6)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,6)]
+
+[meter7]
+Meter=Image
+ImageName=downloads
+X=#X#
+Y=592.30769230769
+ImageTint=#IdleColor#
+DynamicVariables=1
+UpdateDivider=-1
+MouseOverAction=[!SetVariable hover7 1][!CommandMeasure Script reload(7)][!UpdateMeter meter7][!Redraw]
+MouseLeaveAction=[!SetVariable hover7 0][!CommandMeasure Script reload(7)][!UpdateMeter meter7][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,7)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,7)]
+
+[meter8]
 Meter=Image
 ImageName=technical
-X=1510
-Y=781.53846153846
-ImageTint=#technical_color#
+X=#X#
+Y=686.92307692308
+ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
-MouseOverAction=[!SetOption technical ImageTint #HoverColor#][!UpdateMeter technical][!Redraw]
-MouseLeaveAction=[!SetOption technical ImageTint #technical_color#][!UpdateMeter technical][!Redraw]
-LeftMouseUpAction=["I:\Shortcuts\Technical"]
+MouseOverAction=[!SetVariable hover8 1][!CommandMeasure Script reload(8)][!UpdateMeter meter8][!Redraw]
+MouseLeaveAction=[!SetVariable hover8 0][!CommandMeasure Script reload(8)][!UpdateMeter meter8][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,8)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,8)]
+
+[meter9]
+Meter=Image
+ImageName=
+X=#X#
+Y=781.53846153846
+ImageTint=#IdleColor#
+DynamicVariables=1
+UpdateDivider=-1
+MouseOverAction=[!SetVariable hover9 1][!CommandMeasure Script reload(9)][!UpdateMeter meter9][!Redraw]
+MouseLeaveAction=[!SetVariable hover9 0][!CommandMeasure Script reload(9)][!UpdateMeter meter9][!Redraw]
+RightMouseUpAction=[!CommandMeasure Script meterBang(0,9)]
+LeftMouseUpAction=[!CommandMeasure Script meterBang(1,9)]
 
 [recyclebin]
 Meter=Image
 ImageName=recyclebin
-X=1510
+X=#X#
 Y=1065.3846153846
 ImageTint=#recyclebin_color#
 DynamicVariables=1
 UpdateDivider=-1
 MouseOverAction=[!SetOption recyclebin ImageTint #HoverColor#][!UpdateMeter recyclebin][!Redraw]
 MouseLeaveAction=[!SetOption recyclebin ImageTint #recyclebin_color#][!UpdateMeter recyclebin][!Redraw]
-LeftMouseUpAction=["::{645FF040-5081-101B-9F08-00AA002F954E}"]
+RightMouseUpAction=[!CommandMeasure recyclebin_process "EmptyBin"]
+LeftMouseUpAction=[!CommandMeasure recyclebin_process "OpenBin"]
 
 [recyclebin_process]
 Measure=Plugin
-Plugin=RecycleManager.dll
+Plugin=RecycleManager
 RecycleType=Count
 
 [recyclebin_calc]
@@ -196,32 +162,21 @@ Meter=Image
 ImageName=recyclebin
 ImageTint=255,0,0
 ImageCrop=0,[recyclebin_calc],70,70
-X=20
+X=1510
 Y=[recyclebin_y]
 DynamicVariables=1
-
-[power]
-Meter=Image
-ImageName=power
-X=1510
-Y=970.76923076923
-ImageTint=#power_color#
-DynamicVariables=1
-UpdateDivider=-1
-MouseOverAction=[!SetOption power ImageTint #HoverColor#][!UpdateMeter power][!Redraw]
-MouseLeaveAction=[!SetOption power ImageTint #power_color#][!UpdateMeter power][!Redraw]
-LeftMouseUpAction=[]
 
 [search]
 Meter=Image
 ImageName=search
-X=1510
-Y=876.15384615385
+X=#X#
+Y=970.76923076923
 ImageTint=#search_color#
 DynamicVariables=1
 UpdateDivider=-1
 MouseOverAction=[!SetOption search ImageTint #HoverColor#][!UpdateMeter search][!Redraw]
 MouseLeaveAction=[!SetOption search ImageTint #search_color#][!UpdateMeter search][!Redraw]
+RightMouseUpAction=
 LeftMouseUpAction=[!CommandMeasure search_input "ExecuteBatch 1"]
 
 [search_input]
@@ -240,4 +195,17 @@ FontSize=24
 AntiAlias=1
 Search=
 Command1=[!SetOption search_input Search "$UserInput$"][!CommandMeasure Script search()] 
+
+[note]
+Meter=Image
+ImageName=note
+X=#X#
+Y=876.15384615385
+ImageTint=#note_color#
+DynamicVariables=1
+UpdateDivider=-1
+MouseOverAction=[!SetOption note ImageTint #HoverColor#][!UpdateMeter note][!Redraw]
+MouseLeaveAction=[!SetOption note ImageTint #note_color#][!UpdateMeter note][!Redraw]
+RightMouseUpAction=[!ToggleConfig "ia-rainmeter\Notes" "main.ini"]
+LeftMouseUpAction=["notepad.exe" "#ROOTCONFIGPATH#\Notes\note.txt"]
 
