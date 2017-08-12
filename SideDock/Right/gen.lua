@@ -342,7 +342,9 @@ function Initialize()
 		id = id..v[1].."/"
 	end
 
-	variables = variables..id.."\nX=(#SCREENAREAWIDTH# - 70 - "..spacing..")\n"
+	variables = variables..id..
+		"\nS=(#SCREENAREAHEIGHT#/"..SELF:GetOption("WinY")..")"..
+		"\nX=(#SCREENAREAWIDTH# - 70 - "..spacing..")\n"
 
 	local file = io.open(SKIN:MakePathAbsolute(SELF:GetOption("IncFile")), "r")
 	if file then
@@ -353,7 +355,7 @@ function Initialize()
 		end
 	end
 
-	-- Setup Visible List
+	-- Scrollable List (Top)
 
 	for i=1,total do
 		variables = variables..
@@ -363,8 +365,9 @@ function Initialize()
 			"[meter"..i.."]"..
 			"\nMeter=Image"..
 			"\nImageName="..(list[i] and list[i][1] or "")..
+			"\nH=(70*#S#)"..
 			"\nX=#X#"..
-			"\nY="..((i-1)*(70+distance)+distance)..
+			"\nY=("..((i-1)*(70+distance)+distance).."*#S#)"..
 			"\nImageTint=#IdleColor#"..
 			"\nDynamicVariables=1"..
 			"\nUpdateDivider=-1"..
@@ -374,7 +377,7 @@ function Initialize()
 			"\nLeftMouseUpAction=[!CommandMeasure Script meterBang(1,"..i..")]\n\n"
 	end
 
-	-- Scrollable List (Top)
+	-- Processes
 
 	for i,v in pairs(list) do
 		if v[5] then

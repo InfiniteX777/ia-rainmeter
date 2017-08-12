@@ -126,12 +126,10 @@ function Initialize()
 [Game]]..i..[[]
 Meter=Image
 ImageName=DownloadFile/#Game]]..i..[[Banner#.jpg
-H=]]..h..[[
-
+H=((#SCREENAREAHEIGHT#-40)/]]..rows..[[-]]..(spacing+spacing/rows)..[[)
 X=]]..spacing..[[
 
-Y=]]..((h+spacing)*i+spacing)..[[
-
+Y=(((#SCREENAREAHEIGHT#-40)/]]..rows..[[-]]..(spacing/rows)..[[)*]]..i..[[+]]..spacing..[[)
 Greyscale=1
 LeftMouseUpAction=["steam://rungameid/#Game]]..i..[[Banner#"]
 MouseOverAction=[!SetOption Game]]..i..[[ Greyscale 0][!UpdateMeter Game]]..i..[[][!Redraw]

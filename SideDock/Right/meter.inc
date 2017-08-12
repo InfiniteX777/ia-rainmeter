@@ -1,5 +1,6 @@
 [Variables]
 meterID=offline/online/social/audio/media/workspace/downloads/technical/recyclebin/search/note/
+S=(#SCREENAREAHEIGHT#/1200)
 X=(#SCREENAREAWIDTH# - 70 - 20)
 hover1=0
 hover2=0
@@ -17,8 +18,9 @@ note_color=54,49,56
 [meter1]
 Meter=Image
 ImageName=offline
+H=(70*#S#)
 X=#X#
-Y=24.615384615385
+Y=(24.615384615385*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -30,8 +32,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,1)]
 [meter2]
 Meter=Image
 ImageName=online
+H=(70*#S#)
 X=#X#
-Y=119.23076923077
+Y=(119.23076923077*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -43,8 +46,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,2)]
 [meter3]
 Meter=Image
 ImageName=social
+H=(70*#S#)
 X=#X#
-Y=213.84615384615
+Y=(213.84615384615*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -56,8 +60,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,3)]
 [meter4]
 Meter=Image
 ImageName=audio
+H=(70*#S#)
 X=#X#
-Y=308.46153846154
+Y=(308.46153846154*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -69,8 +74,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,4)]
 [meter5]
 Meter=Image
 ImageName=media
+H=(70*#S#)
 X=#X#
-Y=403.07692307692
+Y=(403.07692307692*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -82,8 +88,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,5)]
 [meter6]
 Meter=Image
 ImageName=workspace
+H=(70*#S#)
 X=#X#
-Y=497.69230769231
+Y=(497.69230769231*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -95,8 +102,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,6)]
 [meter7]
 Meter=Image
 ImageName=downloads
+H=(70*#S#)
 X=#X#
-Y=592.30769230769
+Y=(592.30769230769*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -108,8 +116,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,7)]
 [meter8]
 Meter=Image
 ImageName=technical
+H=(70*#S#)
 X=#X#
-Y=686.92307692308
+Y=(686.92307692308*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
@@ -121,8 +130,9 @@ LeftMouseUpAction=[!CommandMeasure Script meterBang(1,8)]
 [meter9]
 Meter=Image
 ImageName=
+H=(70*#S#)
 X=#X#
-Y=781.53846153846
+Y=(781.53846153846*#S#)
 ImageTint=#IdleColor#
 DynamicVariables=1
 UpdateDivider=-1
