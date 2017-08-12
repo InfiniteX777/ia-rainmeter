@@ -1,5 +1,19 @@
-<242,206,218|Segoe UI Light|24|20>8/9
-<54,49,56|Segoe UI|16|20>MP
+<242,206,218|Segoe UI Light|24|20>8/17
+<54,49,56|Segoe UI|16|10>Final Exam - CCSCAL1
+<242,206,218|Segoe UI|8|0>G206 1030 - 1230
+<242,206,218|Segoe UI|8|0>Parabola, Ellipse, Circle
+<242,206,218|Segoe UI|8|0>Limits
+<242,206,218|Segoe UI|8|0>Find Vert. & Hori. Asymp. via Limits
+<242,206,218|Segoe UI|8|0>Continuity on Interval
+<242,206,218|Segoe UI|8|0>Continuity+Differentiability of Piece Wise Func.
+<242,206,218|Segoe UI|8|0>Derivatives of Alge. & Trig. Func.
+<242,206,218|Segoe UI|8|0>Imp. Diff.
+<242,206,218|Segoe UI|8|0>Tan. & Norm. Line
+<242,206,218|Segoe UI|8|0>Word Prob. on Related Rates
+<242,206,218|Segoe UI|8|20>Crit. Num., Inc. & Dec. Func, Max. & Min.
+<242,206,218|Segoe UI Light|24|20>8/18
+<54,49,56|Segoe UI|16|10>Final Exam - DISCTRU
+<242,206,218|Segoe UI|8|20>G203 1130 - 1430
 <242,206,218|Segoe UI Light|24|20>8/24 - 9/8
 <54,49,56|Segoe UI|16|10>Adjust 1100 - 2000
 <242,206,218|Segoe UI|8|0>318  BASICON S19 TH 0915 - 1045 W 0915 - 1045
