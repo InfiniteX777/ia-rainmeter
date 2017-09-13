@@ -64,6 +64,11 @@ local list = {
 		"25,118,210"
 	},]]
 	{
+		"explorer",
+		"File Explorer",
+		'[explorer.exe]'
+	},
+	{
 		"offline",
 		"Offline Games",
 		'["I:\\Shortcuts\\Offline Game"]'
@@ -129,7 +134,7 @@ Formula=recyclebin_calc+%x%
 
 [recyclebin_full]
 Meter=Image
-ImageName=recyclebin
+ImageName=icon/recyclebin
 ImageTint=255,0,0
 ImageCrop=0,[recyclebin_calc],70,70
 X=Calc<%WinX%-70-%spacing%>
@@ -179,7 +184,7 @@ local search_tag = "firefox/github/atom/notepad++/microsoft edge/offline games/o
 local search_index = {
 	firefox = '"C:\\Program Files\\Nightly\\firefox.exe"',
 	github = '"C:\\Users\\Infin\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe"',
-	atom = '"C:\\ProgramData\\Infin\\atom\\atom.exe"',
+	atom = '"C:\\Users\\Infin\\AppData\\Local\\atom\\atom.exe"',
 	["notepad++"] = '"F:\\Program Files\\Notepad++\\notepad++.exe"',
 	edge = "shell:Appsfolder\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge",
 	["offline games"] = '"I:\\Shortcuts\\Offline Game"',
@@ -189,9 +194,9 @@ local search_index = {
 	["recycle bin"] = '"::{645FF040-5081-101B-9F08-00AA002F954E}"',
 	["paint.net"] = '"F:\\Program Files\\paint.net\\PaintDotNet.exe"',
 	["gimp 2"] = '"F:\\Program Files\\GIMP 2\\bin\\gimp-2.8.exe"',
+	steam = '"F:\\Program Files (x86)\\Steam\\steam.exe"',
 	rainmeter = "!Manage",
-	refresh = "!RefreshApp",
-	steam = '"F:\\Program Files (x86)\\Steam\\steam.exe"'
+	refresh = "!RefreshApp"
 }
 
 function search()
@@ -226,7 +231,7 @@ function write(v,x,variables,meters)
 	variables = variables..v[1].."_color="..SKIN:GetVariable("IdleColor").."\n"
 	meters = meters.."["..v[1].."]"..
 		"\nMeter=Image"..
-		"\nImageName="..v[1]..
+		"\nImageName=icon/"..v[1]..
 		"\nX=#X#"..
 		"\nY="..x..
 		"\nImageTint=#"..v[1].."_color#"..
@@ -234,8 +239,8 @@ function write(v,x,variables,meters)
 		"\nUpdateDivider=-1"..
 		"\nMouseOverAction=[!SetOption "..v[1].." ImageTint #HoverColor#][!UpdateMeter "..v[1].."][!Redraw]"..
 		"\nMouseLeaveAction=[!SetOption "..v[1].." ImageTint #"..v[1].."_color#][!UpdateMeter "..v[1].."][!Redraw]"..
-		"\nRightMouseUpAction="..(v[4] or "")..
-		"\nLeftMouseUpAction="..(v[3] or "")
+		"\nRightMouseUpAction="..(v[4] or '[""]')..
+		"\nLeftMouseUpAction="..(v[3] or '[""]')
 
 	if v[5] then
 		local process = v[1].."_process"
@@ -310,7 +315,7 @@ function wheel(step)
 		local d = SKIN:GetMeasure(v and v[1].."_process" or "")
 
 		reload(i)
-		SKIN:Bang("!SetOption","meter"..i,"ImageName",v and v[1] or "")
+		SKIN:Bang("!SetOption","meter"..i,"ImageName","icon/"..(v and v[1] or "empty"))
 		SKIN:Bang("!UpdateMeter","meter"..i)
 	end
 
@@ -324,31 +329,31 @@ function meterBang(lmb,i)
 end
 
 function Initialize()
-	local variables = "[Variables]\nmeterID="
+	local variables = "[Variables]\n"
 	local meters = ""
-	local id = ""
-	local distance = (SELF:GetOption("WinY")-40)/(70+spacing)
+	local distance = (SELF:GetOption("WinY")-SKIN:GetVariable("TaskbarSize"))/(70+spacing)
 	total = floor(distance)
 	distance = ((distance-total)*90-spacing)/(total+1)+spacing
 	total = total-#list_static
 
 	-- Generate ID and compare to pre-existing meter.
+	local id = total..distance
 
 	for _,v in pairs(list) do
-		id = id..v[1].."/"
+		id = id..v[1]
 	end
 
 	for _,v in pairs(list_static) do
-		id = id..v[1].."/"
+		id = id..v[1]
 	end
 
-	variables = variables..id..
-		"\nS=(#SCREENAREAHEIGHT#/"..SELF:GetOption("WinY")..")"..
-		"\nX=(#SCREENAREAWIDTH# - 70 - "..spacing..")\n"
+	variables = variables..
+		"S=(#SCREENAREAHEIGHT#/"..SELF:GetOption("WinY")..")\n"..
+		"X=(#SCREENAREAWIDTH# - 70 - "..spacing..")\n"
 
 	local file = io.open(SKIN:MakePathAbsolute(SELF:GetOption("IncFile")), "r")
 	if file then
-		local v = file:read("*all"):match("meterID=(.-)\n")
+		local v = file:read("*all"):match("#(.-)\n")
 
 		if v and v == id then
 			return
@@ -364,7 +369,7 @@ function Initialize()
 		meters = meters..
 			"[meter"..i.."]"..
 			"\nMeter=Image"..
-			"\nImageName="..(list[i] and list[i][1] or "")..
+			"\nImageName=icon/"..(list[i] and list[i][1] or "empty")..
 			"\nH=(70*#S#)"..
 			"\nX=#X#"..
 			"\nY=("..((i-1)*(70+distance)+distance).."*#S#)"..
@@ -413,7 +418,7 @@ function Initialize()
 	end
 
 	file = io.open(SKIN:MakePathAbsolute(SELF:GetOption("IncFile")), "w")
-	file:write(variables.."\n"..meters)
+	file:write("#"..id.."\n\n"..variables.."\n"..meters)
 	file:close()
 
 	SKIN:Bang("!Refresh")
